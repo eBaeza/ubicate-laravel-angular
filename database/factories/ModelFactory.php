@@ -37,3 +37,15 @@ $factory->define(App\University::class, function (Faker\Generator $faker) {
         ])
     ];
 });
+
+// factory for Career-Universities relationship
+$factory->define(App\CareerUniversity::class, function (Faker\Generator $faker) {
+	// get id of all the Careers and Universities
+	$idsCareers = App\Career::lists('id_career')->toArray();
+	$idsUniversities = App\University::lists('id_university')->toArray();
+
+    return [
+        'id_career' => $faker->randomElement($idsCareers),
+        'id_university' => $faker->randomElement($idsUniversities)
+    ];
+});
