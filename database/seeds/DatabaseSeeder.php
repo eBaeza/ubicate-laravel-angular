@@ -17,6 +17,9 @@ class DatabaseSeeder extends Seeder
         // seeder for careers
         $this->call(CareersTableSeeder::class);
 
+        // seeder for careers
+        $this->call(UniversitiesTableSeeder::class);
+
         Model::reguard();
     }
 }

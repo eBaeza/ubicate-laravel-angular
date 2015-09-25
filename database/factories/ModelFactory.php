@@ -23,3 +23,17 @@ $factory->define(App\Career::class, function (Faker\Generator $faker) {
         ])
     ];
 });
+
+// factory for Universities
+$factory->define(App\University::class, function (Faker\Generator $faker) {
+    return [
+        'name_university' => "University of $faker->streetName",
+        'country_university' => $faker->randomElement([
+        	'México',
+        	'EUA',
+        	'España',
+        	'Canadá',
+        	'Inglaterra'
+        ])
+    ];
+});
