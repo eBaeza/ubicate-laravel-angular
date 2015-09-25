@@ -14,7 +14,7 @@
 // factory for Careers
 $factory->define(App\Career::class, function (Faker\Generator $faker) {
     return [
-        'name_career' => $faker->bs,
+        'name_career' => ucwords($faker->bs),
         'area_career' => $faker->randomElement([
         	'Aeronáutica',
         	'Educación',
