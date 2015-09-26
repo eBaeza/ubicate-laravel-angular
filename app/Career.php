@@ -18,7 +18,7 @@ class Career extends Model
      *
      * @var array
      */
-    protected $fillable = ['name_career', 'area_career'];
+    protected $fillable = ['name', 'area'];
 
     /*
     * Relationship with universities

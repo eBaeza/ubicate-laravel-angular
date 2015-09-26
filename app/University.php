@@ -18,7 +18,7 @@ class University extends Model
      *
      * @var array
      */
-    protected $fillable = ['name_university', 'country_university'];
+    protected $fillable = ['name', 'country'];
 
     /*
     * Relationship with careers
