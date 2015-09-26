@@ -12,82 +12,43 @@ use App\University;
 class CareersController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the careers.
      *
-     * @return \Illuminate\Http\Response
+     * @return JSON
      */
-    public function index()
+    public function getIndex()
     {
-        $result = Career::with('universities')->get();
+        $result = Career::with('universities')->select('id', 'name', 'area')->get();
 
-        dd( $result->toArray() );
-
-        return response()->json($result->toArray());
+        return response()->json( $result->toArray() );
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
+     * Display the specified career.
+     * Responds to requests to GET /careers/by-id/{id}
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return JSON
      */
-    public function show($id)
+    public function getById($id)
     {
-        //
+        $result = Career::with('universities')->select('id', 'name', 'area')->find($id);
+
+        return response()->json( $result->toArray() ); 
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display careers by area
+     * Responds to requests to GET /careers/by-area/{area}
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  string  $area
+     * @return JSON
      */
-    public function edit($id)
+    public function getByArea($area)
     {
-        //
-    }
+        $result = Career::with('universities')->select('id', 'name', 'area')
+                    ->where('area', $area)->get();
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return response()->json( $result->toArray() ); 
     }
 }

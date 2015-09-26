@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('careers', 'CareersController');
+Route::controller('careers', 'CareersController');
