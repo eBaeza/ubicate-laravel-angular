@@ -25,6 +25,7 @@ class University extends Model
     */
     public function careers()
     {
-        return $this->belongsToMany('\App\Career', 'career_universities')->withPivot('career_id');
+        return $this->belongsToMany('\App\Career', 'career_universities')
+                    ->select('careers.id', 'name', 'area');
     }
 }
