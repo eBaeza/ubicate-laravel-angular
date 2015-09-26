@@ -14,8 +14,8 @@
 // factory for Careers
 $factory->define(App\Career::class, function (Faker\Generator $faker) {
     return [
-        'name_career' => ucwords($faker->bs),
-        'area_career' => $faker->randomElement([
+        'name' => ucwords($faker->bs),
+        'area' => $faker->randomElement([
         	'Aeronáutica',
         	'Educación',
         	'Computación',
@@ -27,8 +27,8 @@ $factory->define(App\Career::class, function (Faker\Generator $faker) {
 // factory for Universities
 $factory->define(App\University::class, function (Faker\Generator $faker) {
     return [
-        'name_university' => "University of $faker->streetName",
-        'country_university' => $faker->randomElement([
+        'name' => "University of $faker->streetName",
+        'country' => $faker->randomElement([
         	'México',
         	'EUA',
         	'España',
@@ -41,11 +41,11 @@ $factory->define(App\University::class, function (Faker\Generator $faker) {
 // factory for Career-Universities relationship
 $factory->define(App\CareerUniversity::class, function (Faker\Generator $faker) {
 	// get id of all the Careers and Universities
-	$idsCareers = App\Career::lists('id_career')->toArray();
-	$idsUniversities = App\University::lists('id_university')->toArray();
+	$idsCareers = App\Career::lists('id')->toArray();
+	$idsUniversities = App\University::lists('id')->toArray();
 
     return [
-        'id_career' => $faker->randomElement($idsCareers),
-        'id_university' => $faker->randomElement($idsUniversities)
+        'career_id' => $faker->randomElement($idsCareers),
+        'university_id' => $faker->randomElement($idsUniversities)
     ];
 });

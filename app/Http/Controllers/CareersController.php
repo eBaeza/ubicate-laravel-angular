@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\CareerUniversity;
+use App\Career;
+use App\University;
 
 class CareersController extends Controller
 {
@@ -16,15 +18,11 @@ class CareersController extends Controller
      */
     public function index()
     {
-        $result = \DB::table('career-universities')
-                    ->join('careers', 'career-universities.id_career', '=', 'careers.id_career')
-                    ->join('universities', 'career-universities.id_university', '=', 'universities.id_university')
-                    // ->where('careers.area_career', 'Computación')
-                    ->get();
+        $result = Career::with('universities')->get();
 
-        dd( $result );
+        dd( $result->toArray() );
 
-        return response()->json($result);
+        return response()->json($result->toArray());
     }
 
     /**

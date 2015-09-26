@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class CareerUniversity extends Model
 {
-/**
+    /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'career-universities';
+    protected $table = 'career_universities';
  
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['id_career', 'id_university'];
+    protected $fillable = ['career_id', 'university_id'];
 }

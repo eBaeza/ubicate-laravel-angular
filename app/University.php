@@ -19,4 +19,12 @@ class University extends Model
      * @var array
      */
     protected $fillable = ['name_university', 'country_university'];
+
+    /*
+    * Relationship with careers
+    */
+    public function careers()
+    {
+        return $this->belongsToMany('\App\Career', 'career_universities')->withPivot('career_id');
+    }
 }
