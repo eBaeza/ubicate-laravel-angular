@@ -1,0 +1,46 @@
+// vendors
+@import vendors/pure/all
+
+// helpers
+.content-box
+		padding: 0 1em
+.txt-center
+	text-align: center
+
+/* custom styles */
+.container
+	max-width: 1000px
+	margin: 0 auto
+
+// filters container
+.filters
+	padding-bottom: 15px
+	select
+		width: 100%
+	.singlecountry
+		padding: 9px 15px
+		border: 1px solid #ccc
+		border-radius: $border-radius
+		color: #888
+		
+// results container 
+.results
+	min-height: 400px 
+	background: $cell-background
+	padding-bottom: 1em
+	// results message
+	.itemcountry:not(:last-of-type)
+		&::after
+			content: ' y '
+	// item of search
+	.item-search
+		overflow: hidden
+		margin: 0.5em 0
+		padding: 10px 16px
+		background: #fff
+		border: 1px solid $border
+		border-radius: 8px
+		.universitylogo
+			border-radius: 6px
+			float: left
+			margin-right: 16px
