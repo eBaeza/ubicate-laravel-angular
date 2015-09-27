@@ -1,5 +1,7 @@
 var elixir = require('laravel-elixir');
 
+require('laravel-elixir-livereload');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -12,6 +14,8 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
+	mix.livereload();
+	
     mix.sass('app.s*ss');
 
     mix.scripts([
