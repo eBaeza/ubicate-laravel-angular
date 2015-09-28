@@ -59,7 +59,7 @@
 
             <!-- select country -->
             <div class="pure-control-group" 
-              ng-show="Career && countries.length">
+              ng-show="Career && countries.length > 1">
               <label for="">País:</label>
               <select name="country" ng-model="Country"
                 ng-options="country for country in countries">
@@ -85,7 +85,7 @@
             <strong ng-if="countries.length == 1">
               {{ countries[0] }}
             </strong>
-            donde puedes estudiar la carrera de <b></b>
+            donde puedes estudiar la carrera de <b>{{ Career.name }}</b>
           </p>
           <!-- items of results -->
           <div class="item-search" ng-if="!Country" 
