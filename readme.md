@@ -4,6 +4,18 @@
 ```sh
 $ sudo composer install
 ```
+
+###  Configurate the database in .env file
+* Create in the root directory the `.env` file based in `.env.example` file
+* Generate a key `$ php artisan key:generate`
+* Set the configuration of your database inside the `.env` file
+```
+DB_HOST=localhost
+DB_DATABASE=homestead
+DB_USERNAME=homestead
+DB_PASSWORD=secret
+```
+
 ### Create migrations and generate seeders
 ```sh
 $ php artisan migrate --seed
@@ -24,8 +36,7 @@ Watch Assets For Changes
 $ gulp watch
 ```
 
-### Are you having troubles with this in Mac OS?
-![alt text](https://s3.amazonaws.com/uploads.hipchat.com/12808/41232/sZ1uvBux6RHyWnP/Captura%20de%20pantalla%202015-09-27%20a%20la%28s%29%2017.24.39.png "trouble")
+### Are you having troubles with this [PDOException] SQLSTATE[HY000] [2002] No such file or directory  in Mac OS?
 
 The solution is this:
 
