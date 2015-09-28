@@ -63,7 +63,7 @@
               <label for="">País:</label>
               <select name="country" ng-model="Country"
                 ng-options="country for country in countries">
-                  <option value="">---Selecciona un país--</option>
+                  <option value="">---Todos los países--</option>
               </select>
             </div>
           </div>
@@ -82,7 +82,7 @@
             <strong ng-if="Country">
               {{ Country }}
             </strong>
-            <strong ng-if="countries.length == 1">
+            <strong ng-if="countries.length == 1 && !Country">
               {{ countries[0] }}
             </strong>
             donde puedes estudiar la carrera de <b>{{ Career.name }}</b>
