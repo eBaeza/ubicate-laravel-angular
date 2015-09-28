@@ -40,16 +40,17 @@
             <!-- select area -->
             <div class="pure-control-group">
               <label for="">Área:</label>
-              <select name="area" ng-model="selectedArea"
+              <select name="area" ng-model="area"
+                ng-change="getCareersByArea(area)"
                 ng-options="area for area in areas">
-                  <option value="">---Selecciona un área---</option>
+                  <option value="">---Selecciona una área---</option>
               </select>
             </div>
             <!-- select career -->
             <div class="pure-control-group" ng-show="selectedArea">
               <label for="">Carrera:</label>
               <select name="career" ng-model="selectedCareer"
-                ng-options="career.name for career in careers | filter:career.area=selectedArea">
+                ng-options="career.name for career in careers">
                   <option value="">---Selecciona una carrera---</option>
               </select>
             </div>

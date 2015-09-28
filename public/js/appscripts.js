@@ -15,11 +15,13 @@
       'Medicina'
     ];
 
-  	// get data json
-  	$http.get('http://ubicate.laravelng/careers').then(function (response) {
-      console.log(response.data);
-  		$scope.careers = response.data;
-  	});
+  	// get careers by area
+    $scope.getCareersByArea = function (area) {
+      $http.get('/careers/by-area/' + area).then(function (response) {
+        console.log(response.data);
+      	$scope.careers = response.data;
+      });
+    };
   });
 
 }());
