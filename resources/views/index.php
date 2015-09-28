@@ -40,27 +40,30 @@
             <!-- select area -->
             <div class="pure-control-group">
               <label for="">Área:</label>
-              <select name="area" ng-model="area"
-                ng-change="getCareersByArea(area)"
+              <select name="area" ng-model="Area"
+                ng-change="getCareersByArea(Area)"
                 ng-options="area for area in areas">
                   <option value="">---Selecciona una área---</option>
               </select>
             </div>
+
             <!-- select career -->
-            <div class="pure-control-group" ng-show="selectedArea">
+            <div class="pure-control-group" ng-show="careers">
               <label for="">Carrera:</label>
-              <select name="career" ng-model="selectedCareer"
+              <select name="career" ng-model="Career"
+                ng-change="getCountries(Career)"
                 ng-options="career.name for career in careers">
                   <option value="">---Selecciona una carrera---</option>
               </select>
             </div>
+
             <!-- select country -->
             <div class="pure-control-group" 
-              ng-show="selectedCareer && selectedCareer.countries.length > 1">
+              ng-show="Career && countries.length">
               <label for="">País:</label>
-              <select name="country" ng-model="selectedCountry"
-                ng-options="country as country.name for country in selectedCareer.countries">
-                  <option value="">---Ecuador y Perú---</option>
+              <select name="country" ng-model="Country"
+                ng-options="country for country in countries">
+                  <option value="">---Selecciona un país--</option>
               </select>
             </div>
           </div>
@@ -68,29 +71,36 @@
       </div>
 
       <div class="pure-u-3-5 results">
-        <div class="content-box" ng-if="selectedCareer">
+        <div class="content-box" ng-if="Career">
           <!-- message of results -->
           <p>
             Estas son las universidades en 
             <strong class="itemcountry" 
-              ng-if="selectedCareer.countries.length > 1 && !selectedCountry"
-              ng-repeat="country in selectedCareer.countries">
+              ng-if="countries.length > 1 && !Country"
+              ng-repeat="country in countries">
+              {{ country }}
             </strong>
-            <strong ng-if="selectedCountry">
+            <strong ng-if="Country">
+              {{ Country }}
             </strong>
-            <strong ng-if="selectedCareer.countries.length == 1">
+            <strong ng-if="countries.length == 1">
+              {{ countries[0] }}
             </strong>
             donde puedes estudiar la carrera de <b></b>
           </p>
           <!-- items of results -->
-          <div ng-repeat="career in careers | filter:career.area=selectedArea | filter:career.name=selectedCareer.name">
-            <div ng-repeat="country in career.countries | filter:country.name=selectedCountry.name">
-              <div class="item-search" ng-repeat="university in country.universities">
-                <img class="universitylogo" ng-src="http://placehold.it/84x84/dddddd/?text=Logo">
-                <p><strong>País:</strong> </p>
-                <p><strong>Universidad:</strong> </p>
-              </div>
-            </div>
+          <div class="item-search" ng-if="!Country" 
+            ng-repeat="university in Career.universities">
+            <img class="universitylogo" ng-src="http://placehold.it/84x84/dddddd/?text=Logo">
+            <p><strong>País:</strong> {{ university.country }}</p>
+            <p><strong>Universidad:</strong> {{ university.name }}</p>
+          </div>
+
+          <div class="item-search" ng-if="Country"
+            ng-repeat="university in Career.universities | filter:university.country=Country">
+            <img class="universitylogo" ng-src="http://placehold.it/84x84/dddddd/?text=Logo">
+            <p><strong>País:</strong> {{ university.country }}</p>
+            <p><strong>Universidad:</strong> {{ university.name }}</p>
           </div>
         </div>
       </div>
