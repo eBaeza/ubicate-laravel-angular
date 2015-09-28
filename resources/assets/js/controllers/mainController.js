@@ -6,9 +6,9 @@
   	// areas
   	$scope.areas = [
       'Aeronáutica',
-      'Educación',
-      'Computación',
-      'Medicina'
+      'Educación'
+      // 'Computación',
+      // 'Medicina'
     ];
 
   	// get careers by area
@@ -32,11 +32,13 @@
       var universities = career.universities;
       var items;
       var countries = [
-        'México',
-        'EUA',
-        'España',
-        'Canadá',
-        'Inglaterra'
+        'Ecuador',
+        'Perú'
+        // 'México',
+        // 'EUA',
+        // 'España',
+        // 'Canadá',
+        // 'Inglaterra'
       ];
 
       for(var i = 0; i < countries.length; i++) {
