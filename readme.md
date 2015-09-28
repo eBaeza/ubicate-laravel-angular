@@ -1,4 +1,4 @@
-# Demo ubícate searcher with Laravel and Angular# Demo ubícate searcher with Laravel and Angular
+# Demo ubícate searcher with Laravel and Angular
 
 ### Install laravel dependencies
 ```sh
@@ -30,9 +30,10 @@ $ gulp watch
 The solution is this:
 
 * Create the `/mysql` directory into `/var`
-* Do this in the terminal 
-    ```sh
-        $ cd /var/mysql
-        $ ln -s /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock /tmp/mysql.sock
-    ```
+* To know the location of mysql.sock execute: `$ ps -ax|grep mysql` and search `--socket=/path/of/mysql.sock`
+* And do this
+```sh
+$ cd /var/mysql
+$ ln -s /path/of/mysql.sock /tmp/mysql.sock
+```
 * Restart the serve of mysql
