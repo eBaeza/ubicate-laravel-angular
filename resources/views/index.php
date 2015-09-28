@@ -78,8 +78,7 @@
             <strong class="itemcountry" 
               ng-if="countries.length > 1 && !Country"
               ng-repeat="country in countries">
-              {{ country }}
-            </strong>
+              {{ country }}</strong>
             <strong ng-if="Country">
               {{ Country }}
             </strong>

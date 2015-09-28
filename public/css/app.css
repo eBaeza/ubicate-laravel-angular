@@ -1382,7 +1382,9 @@ a.pure-button-selected {
   min-height: 400px;
   background: #f1f3f9;
   padding-bottom: 1em; }
-  .results .itemcountry:not(:last-of-type)::after {
+  .results .itemcountry:not(:last-of-type):not(:nth-last-of-type(2))::after {
+    content: ', '; }
+  .results .itemcountry:last-of-type::before {
     content: ' y '; }
   .results .item-search {
     overflow: hidden;

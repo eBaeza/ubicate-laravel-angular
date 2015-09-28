@@ -29,8 +29,11 @@
 	background: $cell-background
 	padding-bottom: 1em
 	// results message
-	.itemcountry:not(:last-of-type)
+	.itemcountry:not(:last-of-type):not(:nth-last-of-type(2))
 		&::after
+			content: ', '
+	.itemcountry:last-of-type
+		&::before
 			content: ' y '
 	// item of search
 	.item-search
