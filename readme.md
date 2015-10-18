@@ -45,6 +45,6 @@ The solution is this:
 * And do this
 ```sh
 $ cd /var/mysql
-$ ln -s /path/of/mysql.sock /tmp/mysql.sock
+$ ln -s /path/of/mysql.sock /var/mysql/mysql.sock
 ```
 * Restart the serve of mysql
